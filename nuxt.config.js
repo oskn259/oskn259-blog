@@ -4,6 +4,10 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
 
+  env: {
+    siteName: process.env.SITE_NAME || 'blog.oskn259.com'
+  },
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: process.env.npm_package_name || 'oskn259',
@@ -24,8 +28,7 @@ export default {
       { hid: 'twitter:card', neme: 'twitter:card', content: "summary_large_image" },
     ],
     link: [
-      { rel: "icon", type: "image/x-icon", href: "/favicon.ico" }
-    ]
+      { rel: "icon", type: "image/x-icon", href: "/favicon.ico" } ]
 
   },
 
@@ -35,6 +38,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    { src: '~/plugins/vuetify.ts' },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -77,9 +81,23 @@ export default {
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     theme: {
-      dark: true,
+      options: {
+        customProperties: true
+      },
+      dark: false,
       themes: {
+        light: {
+          background: colors.teal.lighten5,
+          primary: colors.grey.darken4,
+          accent: colors.grey.darken3,
+          secondary: colors.amber.darken3,
+          info: colors.teal.lighten1,
+          warning: colors.amber.base,
+          error: colors.deepOrange.accent4,
+          success: colors.green.accent3
+        },
         dark: {
+          background: colors.grey.lighten5,
           primary: colors.blue.darken2,
           accent: colors.grey.darken3,
           secondary: colors.amber.darken3,

@@ -1,77 +1,63 @@
 <template>
-  <v-row justify="center" align="center">
-    <v-col cols="12" sm="8" md="6">
-      <v-card class="logo py-4 d-flex justify-center">
-        <NuxtLogo />
-        <VuetifyLogo />
-      </v-card>
-      <v-card>
-        <v-card-title class="headline">
-          Welcome to the Vuetify + Nuxt.js template
-        </v-card-title>
-        <v-card-text>
-          <p>Vuetify is a progressive Material Design component framework for Vue.js. It was designed to empower developers to create amazing applications.</p>
-          <p>
-            For more information on Vuetify, check out the <a
-              href="https://vuetifyjs.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              documentation
-            </a>.
-          </p>
-          <p>
-            If you have questions, please join the official <a
-              href="https://chat.vuetifyjs.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="chat"
-            >
-              discord
-            </a>.
-          </p>
-          <p>
-            Find a bug? Report it on the github <a
-              href="https://github.com/vuetifyjs/vuetify/issues"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="contribute"
-            >
-              issue board
-            </a>.
-          </p>
-          <p>Thank you for developing with Vuetify and I look forward to bringing more exciting features in the future.</p>
-          <div class="text-xs-right">
-            <em><small>&mdash; John Leider</small></em>
-          </div>
-          <hr class="my-3">
-          <a
-            href="https://nuxtjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Nuxt Documentation
-          </a>
-          <br>
-          <a
-            href="https://github.com/nuxt/nuxt.js"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Nuxt GitHub
-          </a>
-        </v-card-text>
-        <v-card-actions>
-          <v-spacer />
-          <v-btn
-            color="primary"
-            nuxt
-            to="/inspire"
-          >
-            Continue
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-col>
-  </v-row>
+  <div>
+
+    <header class="d-flex justify-center my-6">
+      <h1>{{ siteName }}</h1>
+    </header>
+
+    <v-container>
+      <div class="flex-wrap">
+
+        <template v-for="article in articles">
+          <v-hover v-slot="{ hover }" :key="article.slug">
+            <v-card width="300px" class="transition-swing" :elevation="hover ? 14 : 3">
+              <NuxtLink style="text-decoration: none;" :to="`/article/${article.slug}`">
+                <div class="pa-4">
+                  <v-img width="300px" :height="`${imageHeight(300)}px`" class="mb-4" :src="bannerPath(article)" />
+                  <h3 class="mb-1">{{ article.title }}</h3>
+                  <small>{{ formatDate(article.createdAt) }}</small>
+                </div>
+              </NuxtLink>
+            </v-card>
+          </v-hover>
+        </template>
+      </div>
+    </v-container>
+
+  </div>
 </template>
+
+
+
+<script lang="ts">
+
+import { IContentDocument } from '@nuxt/content/types/content';
+import { Component, Vue } from 'vue-property-decorator';
+import moment from 'moment';
+
+
+@Component({
+  async asyncData({ $content }) {
+
+    const articles = await $content('articles')
+      .only(['title', 'banner', 'createdAt', 'slug'])
+      .sortBy('createdAt', 'desc')
+      .fetch();
+
+    if (!Array.isArray(articles)) throw new Error();
+
+    return { articles };
+  }
+})
+export default class Page extends Vue {
+
+  static readonly imageAspectRatio = 1.618;
+
+  articles: IContentDocument[] = [];
+  siteName: string = process.env.siteName || '';
+
+  imageHeight = (w: number) => w / Page.imageAspectRatio;
+  formatDate = (d: Date) => moment(d).format('YYYY/MM/DD HH:mm');
+  bannerPath = (a: IContentDocument) => `/article/${a.slug}/${a.banner}`;
+}
+</script>
