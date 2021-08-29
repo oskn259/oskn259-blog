@@ -49,7 +49,7 @@ export default class Page extends Vue {
   articles: IContentDocument[] = [];
   siteName: string = process.env.siteName || '';
 
-  formatDate = (d: Date) => moment(d).format('YYYY/MM/DD HH:mm');
+  formatDate = (d: Date) => moment(d).format('YYYY/MM/DD');
   bannerPath = (a: IContentDocument) => `/article/${a.slug}/${a.banner}`;
 }
 

@@ -57,7 +57,7 @@ export default class Page extends Vue {
   siteName: string = process.env.siteName || '';
 
   imageHeight = (w: number) => w / this.imageAspectRatio;
-  formatDate = (d: Date) => moment(d).format('YYYY/MM/DD HH:mm');
+  formatDate = (d: Date) => moment(d).format('YYYY/MM/DD');
   bannerPath = (a: IContentDocument) => `/article/${a.slug}/${a.banner}`;
 }
 </script>
