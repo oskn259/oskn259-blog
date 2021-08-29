@@ -10,7 +10,7 @@
 
         <template v-for="article in articles">
           <v-hover v-slot="{ hover }" :key="article.slug">
-            <v-card width="300px" class="transition-swing" :elevation="hover ? 14 : 3">
+            <v-card width="300px" class="d-inline-block transition-swing ma-3" :elevation="hover ? 14 : 3">
               <NuxtLink style="text-decoration: none;" :to="`/article/${article.slug}`">
                 <div class="pa-4">
                   <v-img width="300px" :height="`${imageHeight(300)}px`" class="mb-4" :src="bannerPath(article)" />

@@ -9,7 +9,7 @@
     </header>
       
     <v-container class="d-flex flex-column align-start">
-      <v-img :height="`${imageHeight}px`" contain class="mb-7" :src="bannerPath(article)" />
+      <v-img :height="`${imageHeight}px`" class="mb-7 mx-auto" :src="bannerPath(article)" />
       <time class="text-subtitle-1 mb-3" v-html="formatDate(article.updatedAt)"></time>
       <h1 class="text-h4 font-weight-bold mb-5">{{ article.title }}</h1>
       <div class="media-right mb-6">
