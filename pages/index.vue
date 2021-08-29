@@ -51,12 +51,12 @@ import moment from 'moment';
 })
 export default class Page extends Vue {
 
-  static readonly imageAspectRatio = 1.618;
+  readonly imageAspectRatio = 1.618;
 
   articles: IContentDocument[] = [];
   siteName: string = process.env.siteName || '';
 
-  imageHeight = (w: number) => w / Page.imageAspectRatio;
+  imageHeight = (w: number) => w / this.imageAspectRatio;
   formatDate = (d: Date) => moment(d).format('YYYY/MM/DD HH:mm');
   bannerPath = (a: IContentDocument) => `/article/${a.slug}/${a.banner}`;
 }

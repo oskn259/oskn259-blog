@@ -9,12 +9,9 @@
     </header>
       
     <v-container class="d-flex flex-column align-start">
-      <v-img :height="`${imageHeight}px`" class="mb-7" :src="bannerPath(article)" />
-      <h1 class="text-h5 font-weight-bold mb-5">{{ article.title }}</h1>
-      <div class="media-right">
-        <i class="mdi mdi-update"/> &nbsp;
-        <time v-html="formatDate(article.updatedAt)"></time>
-      </div>
+      <v-img :height="`${imageHeight}px`" contain class="mb-7" :src="bannerPath(article)" />
+      <time class="text-subtitle-1 mb-3" v-html="formatDate(article.updatedAt)"></time>
+      <h1 class="text-h4 font-weight-bold mb-5">{{ article.title }}</h1>
       <div class="media-right mb-6">
         <i class="mdi mdi-account-edit"/> &nbsp;
         {{ article.author }}
@@ -47,7 +44,7 @@ import moment from 'moment';
 })
 export default class Page extends Vue {
 
-  static readonly imageHeight = 450;
+  readonly imageHeight = 450;
 
   articles: IContentDocument[] = [];
   siteName: string = process.env.siteName || '';
