@@ -32,7 +32,7 @@
 <script lang="ts">
 
 import { IContentDocument } from '@nuxt/content/types/content';
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue } from 'nuxt-property-decorator';
 import moment from 'moment';
 
 

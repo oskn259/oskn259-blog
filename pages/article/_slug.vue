@@ -28,7 +28,7 @@
 <script lang="ts">
 
 import { IContentDocument } from '@nuxt/content/types/content';
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue } from 'nuxt-property-decorator';
 import moment from 'moment';
 
 
@@ -49,14 +49,16 @@ export default class Page extends Vue {
   article: IContentDocument | null = null;
   siteName: string = process.env.siteName || '';
 
-  head = () => ({
-    title: this.article ? this.article.title : this.siteName,
-    meta: [
-      { hid: 'og:type', property: 'og:type', content: 'article' },
-      { hid: 'og:title', name: 'og:title', content: this.article ? this.article.title : this.siteName },
-      { hid: 'og:image', property: 'og:image', content: `https://blog.oskn259.com${this.bannerPath(this.article)}` },
-    ],
-  });
+  head() {
+    return {
+      title: this.article ? this.article.title : this.siteName,
+      meta: [
+        { hid: 'og:type', property: 'og:type', content: 'article' },
+        { hid: 'og:title', name: 'og:title', content: this.article ? this.article.title : this.siteName },
+        { hid: 'og:image', property: 'og:image', content: `https://blog.oskn259.com${this.bannerPath(this.article)}` },
+      ],
+    };
+  }
 
   formatDate = (d: Date) => moment(d).format('YYYY/MM/DD');
   bannerPath = (a: IContentDocument | null) => a ? `/article/${a.slug}/${a.banner}` : '';
