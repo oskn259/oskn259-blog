@@ -1,5 +1,5 @@
 ---
-title: CloudWatchの監視アラートをterraformでまとめて設定
+title: CloudWatchの監視メトリクスをterraformでまとめて設定
 createdAt: 2021-9-2
 tags: ['AWS', 'Terraform', 'CloudWatch']
 banner: cloud.jpg
