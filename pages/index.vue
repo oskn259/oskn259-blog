@@ -5,7 +5,7 @@
       <h1>{{ siteName }}</h1>
     </header>
 
-    <v-container>
+    <v-container class="d-flex flex-row">
       <div class="flex-wrap">
 
         <template v-for="article in articles">
@@ -22,6 +22,17 @@
           </v-hover>
         </template>
       </div>
+
+      <v-treeview
+        :items="treeviewItems"
+        hoverable
+      >
+        <template v-slot:label="{ item }">
+          <NuxtLink :to="`/articles?tag=${item.name}`" style="text-decoration: none;">
+            {{ item.name }} ({{ articleCount(item.name) }})
+          </NuxtLink>
+        </template>
+      </v-treeview>
     </v-container>
 
   </div>
@@ -36,6 +47,25 @@ import { Component, Vue } from 'nuxt-property-decorator';
 import moment from 'moment';
 
 
+
+type TreeviewItem = {
+  id: number,
+  name: string,
+  count: number,
+};
+
+
+function toTreeviewItems(tagArticleCount: { tag: string, count: number }[]): TreeviewItem[] {
+
+  return tagArticleCount
+    .sort((a, b) => b.count - a.count)
+    .map((e, i) => ({
+      id: i,
+      name: e.tag,
+      count: e.count,
+    }));
+}
+
 @Component({
   async asyncData({ $content }) {
 
@@ -43,10 +73,26 @@ import moment from 'moment';
       .only(['title', 'banner', 'createdAt', 'slug'])
       .sortBy('createdAt', 'desc')
       .fetch();
-
     if (!Array.isArray(articles)) throw new Error();
 
-    return { articles };
+    const tags: string[] = await $content('articles')
+      .only(['tags'])
+      .fetch()
+      .then(result => {
+        const list = [result].flat().map(v => v.tags).flat();
+        return Array.from(new Set(list));
+      });
+
+    const getArticleCount = (t: string) => $content('articles')
+      .only(['slug'])
+      .where({ tags: { $contains: t } })
+      .fetch()
+      .then(r => ({ tag: t, count: r.length }));
+
+    const tagArticleCount = await Promise.all(tags.map(getArticleCount));
+    const treeviewItems = toTreeviewItems(tagArticleCount);
+
+    return { articles, treeviewItems };
   }
 })
 export default class Page extends Vue {
@@ -54,10 +100,17 @@ export default class Page extends Vue {
   readonly imageAspectRatio = 1.618;
 
   articles: IContentDocument[] = [];
+  treeviewItems: TreeviewItem[] = [];
   siteName: string = process.env.siteName || '';
 
   imageHeight = (w: number) => w / this.imageAspectRatio;
   formatDate = (d: Date) => moment(d).format('YYYY/MM/DD');
   bannerPath = (a: IContentDocument) => `/article/${a.slug}/${a.banner}`;
+  get articleCount() {
+    return (tag: string) => {
+      const found = this.treeviewItems.find(item => item.name === tag);
+      return found === undefined ? 0 : found.count;
+    }
+  }
 }
 </script>
