@@ -44,6 +44,9 @@ https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/clou
 $ aws cloudwatch get-dashboard --dashboard-name test-api-cpu
 ```  
 
+<details>
+<summary>template/dashboard.tpl</summary>
+
 ```terraform
 # template/dashboard.tpl
 
@@ -80,12 +83,14 @@ $ aws cloudwatch get-dashboard --dashboard-name test-api-cpu
   ])}
 }
 ```
+</details>
 このテンプレートに`widgets`という変数を渡してやればokです。  
 その中身については、以下のvariable定義の通り。  
 
-```terraform
-# variables.tf
+<details>
+<summary>variables.tf</summary>
 
+```terraform
 variable "cw_widget_api_metrics" {
   description = "Basic metrics for api servers"
   type = list(object({
@@ -130,6 +135,7 @@ variable "cw_widget_api_servers" {
   ]
 }
 ```  
+</details>
 `cw_widget_api_metrics`と`cw_widget_api_servers`という変数を作成しています。  
 データ型と、デフォルトの値も設定しています。  
 
@@ -142,6 +148,9 @@ terraformに変数は毎回こういった形の記述が必要になる上、
 特にインフラという、オペミスが致命的な領域では大事なことですね。  
 
 あとはこれらを使ってawsに設定を反映していきます。  
+<details>
+<summary>main.tf</summary>
+
 ```terraform
 terraform {
   required_providers {
@@ -159,8 +168,6 @@ provider "aws" {
   region  = "ap-northeast-1"
 }
 
-
-
 data "template_file" "api_basic" {
   template = file("./templates/dashboard.tpl")
   vars = {
@@ -175,12 +182,13 @@ resource "aws_cloudwatch_dashboard" "main" {
   dashboard_body = data.template_file.api_basic.rendered
 }
 ```  
+</details>
+
 `template_file`を使ってテンプレートからテキストを生成し、`aws_couldwatch_dashboard`にて反映しています。  
-しごおわ！
 
 
+# 感想
 
-# Terraformについて
 元々ansibleを長く触ってきて、インフラのコード化という作業には慣れていました。  
 今回Terraformは久しぶりに触るのでほぼ忘れてしまっていました🐓。  
 
