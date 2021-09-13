@@ -8,7 +8,7 @@
       </NuxtLink>
     </header>
       
-    <v-container class="d-flex flex-column align-start">
+    <v-container class="d-flex flex-column align-start blog-content">
       <v-img :height="`${imageHeight}px`" class="mb-7 mx-auto" :src="bannerPath(article)" />
       <time class="text-subtitle-1 mb-3" v-html="formatDate(article.updatedAt)"></time>
       <h1 class="text-h4 font-weight-bold mb-5">{{ article.title }}</h1>
@@ -65,3 +65,15 @@ export default class Page extends Vue {
 }
 
 </script>
+
+
+
+<style lang="scss">
+.nuxt-content-container {
+  width: 100%;
+
+  img {
+    max-width: 100%;
+  }
+}
+</style>
