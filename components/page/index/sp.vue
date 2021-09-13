@@ -5,23 +5,21 @@
       <h1>{{ siteName }}</h1>
     </header>
 
-    <v-container class="d-flex flex-column">
-      <div class="flex-wrap">
+    <v-container class="d-flex flex-column align-center">
 
-        <template v-for="article in articles">
-          <v-hover v-slot="{ hover }" :key="article.slug">
-            <v-card width="300px" class="d-inline-block transition-swing ma-3" :elevation="hover ? 14 : 3">
-              <NuxtLink style="text-decoration: none;" :to="`/article/${article.slug}`">
-                <div class="pa-4">
-                  <v-img width="300px" :height="`${imageHeight(300)}px`" class="mb-4" :src="bannerPath(article)" />
-                  <h3 class="mb-1">{{ article.title }}</h3>
-                  <small>{{ formatDate(article.createdAt) }}</small>
-                </div>
-              </NuxtLink>
-            </v-card>
-          </v-hover>
-        </template>
-      </div>
+      <template v-for="article in articles">
+        <v-hover v-slot="{ hover }" :key="article.slug">
+          <v-card width="300px" class="transition-swing ma-3" :elevation="hover ? 14 : 3">
+            <NuxtLink style="text-decoration: none;" :to="`/article/${article.slug}`">
+              <div class="pa-4">
+                <v-img width="300px" :height="`${imageHeight(300)}px`" class="mb-4" :src="bannerPath(article)" />
+                <h3 class="mb-1">{{ article.title }}</h3>
+                <small>{{ formatDate(article.createdAt) }}</small>
+              </div>
+            </NuxtLink>
+          </v-card>
+        </v-hover>
+      </template>
 
       <v-treeview
         :items="tagList"
