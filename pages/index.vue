@@ -2,7 +2,8 @@
   <div>
 
     <page-index-sp :articles="articles" :tagList="treeviewItems" v-if="$vuetify.breakpoint.name === 'xs'" />
-    <page-index-pc :articles="articles" :tagList="treeviewItems" v-if="$vuetify.breakpoint.name !== 'xs'"/>
+    <page-index-tb :articles="articles" :tagList="treeviewItems" v-if="$vuetify.breakpoint.name === 'sm'" />
+    <page-index-pc :articles="articles" :tagList="treeviewItems" v-if="$vuetify.breakpoint.name !== 'xs' && $vuetify.breakpoint.name !== 'sm'"/>
 
   </div>
 </template>
