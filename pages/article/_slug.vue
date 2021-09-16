@@ -71,6 +71,11 @@ export default class Page extends Vue {
 <style lang="scss">
 .nuxt-content-container {
   width: 100%;
+  overflow: scroll;
+
+  a {
+    word-wrap: break-word;
+  }
 
   img {
     max-width: 100%;
