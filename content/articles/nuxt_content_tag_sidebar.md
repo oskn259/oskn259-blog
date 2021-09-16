@@ -20,7 +20,7 @@ author: oskn259
 まずは`?tag=javascript`のようにクエリでタグ指定を受け付けるようにしましょう。
 ↑のファイルに追記していきます。
 
-```typescript
+```ts
 @Component({
   async asyncData({ route }) {
     const tag = route.query.tag;
@@ -36,7 +36,7 @@ author: oskn259
 
 そしてここが今回のメイン。  
 tagを受け取ったので、これに該当する記事一覧を取得しましょう。  
-```typescript
+```ts
 @Component({
   async asyncData({ $content, route }) {
     const tag = route.query.tag;
@@ -91,7 +91,7 @@ nuxt contentの機能として提供されている、`$content`経由で検索�
 
 引き続き、`$content`を使って情報を引っ張ってきましょう。  
 まずは存在する全てのタグの一覧を取得します。  
-```typescirpt
+```ts
 const tags: string[] = await $content('articles')
   .only(['tags'])
   .fetch()
@@ -104,7 +104,7 @@ const tags: string[] = await $content('articles')
 
 単純にこれを並べても良いのですが、記事数でソートして表示できると、ちゃんとしたブログに近づいてる感じがあります。  
 タグごとの記事数は以下のように取ってきます。  
-```typescirpt
+```ts
 const getArticleCount = (t: string) => $content('articles')
   .only(['slug'])
   .where({ tags: { $contains: t } })
@@ -112,11 +112,13 @@ const getArticleCount = (t: string) => $content('articles')
   .then(r => ({ tag: t, count: r.length }));
 const tagArticleCount = await Promise.all(tags.map(getArticleCount));
 ```
-`$content`による喜寿取得では、`where`をつかった検索も可能です。  
+`$content`による記事取得では、`where`をつかった検索も可能です。  
 タグごとに検索結果の件数を数えればokです。  
 
 あとはvuetifyコンポーネントに値を渡してやれば  
+
 <img src="/article/nuxt_content_tag_sidebar/built.png">  
+
 完成！
 
 

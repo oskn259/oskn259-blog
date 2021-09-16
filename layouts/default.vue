@@ -1,5 +1,5 @@
 <template>
-  <v-app background="#f00">
+  <v-app class="root">
 
     <v-main>
       <v-container>
@@ -28,7 +28,11 @@
 
 
 
-<style>
+<style scoped>
+.root {
+  font-family: 'Noto Sans Japanese', "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴシック Pro", "Hiragino Kaku Gothic Pro", 'メイリオ', Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+}
+
 .theme--dark.v-application {
   background-color: var(--v-background-base, #121212) !important;
 }
