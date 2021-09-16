@@ -71,8 +71,13 @@ export default class Page extends Vue {
 <style lang="scss">
 .nuxt-content-container {
   width: 100%;
-  overflow: scroll;
+  overflow: hidden;
   line-height: 1.65em;
+  text-align: justify;
+
+  .nuxt-content {
+    width: 100%;
+  }
 
   p {
     margin: 0.725rem 0;
