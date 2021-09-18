@@ -28,8 +28,18 @@ export default {
       { hid: 'twitter:card', neme: 'twitter:card', content: "summary_large_image" },
     ],
     link: [
-      { rel: "icon", type: "image/x-icon", href: "/favicon.ico" } ]
-
+      { rel: "icon", type: "image/x-icon", href: "/favicon.ico" }
+    ],
+    script: [
+      {
+        src: 'https://platform.twitter.com/widgets.js',
+        async: true,
+      },
+      {
+        src: 'https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js',
+        defer: true,
+      },
+    ]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
