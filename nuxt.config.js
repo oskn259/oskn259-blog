@@ -62,7 +62,8 @@ export default {
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     // https://go.nuxtjs.dev/content
-    '@nuxt/content'
+    '@nuxt/content',
+    '@nuxtjs/sitemap',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -80,7 +81,8 @@ export default {
     markdown: {
       prism: {
         theme: 'prism-themes/themes/prism-material-oceanic.css'
-      }
+      },
+      remarkPlugins: []
     }
   },
 
@@ -123,5 +125,18 @@ export default {
 
   googleAnalytics: {
     id: 'UA-187556326-1'
+  },
+
+  sitemap: {
+    path: '/sitemap.xml',
+    hostname: 'https://blog.oskn259.com',
+    routes: async () => {
+      const { $content } = require('@nuxt/content')
+      const articles = await $content('articles').only(['path','updatedAt']).fetch()
+      return articles.map((article) => ({
+        url: article.path,
+        lastmod: article.updatedAt,
+      }))
+    }
   },
 }
