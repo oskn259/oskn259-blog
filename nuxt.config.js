@@ -63,6 +63,7 @@ export default {
     '@nuxtjs/pwa',
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
+    '@nuxtjs/robots',
     '@nuxtjs/sitemap',
   ],
 
@@ -127,6 +128,11 @@ export default {
     id: 'UA-187556326-1'
   },
 
+  robots: {
+    UserAgent: '*',
+    Sitemap: 'https://blog.oskn259.com/sitemap.xml',
+  },
+
   sitemap: {
     path: '/sitemap.xml',
     hostname: 'https://blog.oskn259.com',
@@ -135,6 +141,7 @@ export default {
       const articles = await $content('articles').only(['path','updatedAt']).fetch()
       return articles.map((article) => ({
         url: article.path,
+        priority: 0.8,
         lastmod: article.updatedAt,
       }))
     }
