@@ -1,5 +1,5 @@
 ---
-title: 変更に強い設計をしようというお話
+title: 変更に強い設計をしましょうというお話
 createdAt: 2021-9-18
 updatedAt: 2021-9-18
 tags: ['DesignPattern', 'Architecture']
