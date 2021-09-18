@@ -1,6 +1,7 @@
 ---
 title: nuxt contentのブログにタグ機能をつける話
 createdAt: 2021-9-12
+updatedAt: 2021-9-12
 tags: ['Nuxtjs', 'Vuejs', 'TypeScript', 'JavaScript']
 banner: tag.jpg
 author: oskn259

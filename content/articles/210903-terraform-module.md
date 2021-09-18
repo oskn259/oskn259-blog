@@ -1,6 +1,7 @@
 ---
 title: Terraformの機能をモジュールに切り出す
 createdAt: 2021-9-3
+updatedAt: 2021-9-3
 tags: ['Terraform']
 banner: earth.jpg
 author: oskn259

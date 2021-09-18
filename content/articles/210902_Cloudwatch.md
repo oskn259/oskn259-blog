@@ -1,6 +1,7 @@
 ---
 title: CloudWatchの監視メトリクスをterraformでまとめて設定
 createdAt: 2021-9-2
+updatedAt: 2021-9-2
 tags: ['AWS', 'Terraform', 'CloudWatch']
 banner: cloud.jpg
 author: oskn259
