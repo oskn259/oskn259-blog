@@ -24,7 +24,7 @@ export default {
       { hid: 'og:url', property: 'og:url', content: 'https://blog.oskn259.com' },
       { hid: 'og:title', property: 'og:title', content: 'blog.oskn259.com' },
       { hid: 'og:description', property: 'og:description', content: 'oskn259\'s tech blog' },
-      { hid: 'og:image', property: 'og:image', content: 'https://blog.oskn259.com/og.jpg' },
+      { hid: 'og:image', property: 'og:image', content: 'https://blog.oskn259.com/favicon.ico' },
       { hid: 'twitter:card', neme: 'twitter:card', content: "summary_large_image" },
     ],
     link: [
