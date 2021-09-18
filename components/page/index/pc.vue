@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="root">
 
     <header class="d-flex justify-center my-6">
       <h1>{{ siteName }}</h1>
@@ -77,3 +77,11 @@ export default class Page extends Vue {
   }
 }
 </script>
+
+
+
+<style scoped>
+.root {
+  width: 1200px;
+}
+</style>
