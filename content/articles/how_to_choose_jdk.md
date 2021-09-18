@@ -2,7 +2,7 @@
 title: jdkの種類とは？どれを選べば良いのか？
 createdAt: 2021-9-15
 updatedAt: 2021-9-15
-tags: ['java', 'architecture']
+tags: ['Java', 'Architecture']
 banner: zyaba.png
 author: oskn259
 ---
