@@ -235,7 +235,7 @@ BUILD SUCCESSFUL in 1m 22s
 また、配布用のビルド成果物が欲しい場合には`build`サブコマンドを実行すれば
 `app/build/distributions`に圧縮ファイルが生成されます。  
 
-</details>
+<details>
 <summary>buildの出力（展開）</summary>
 
 ```
