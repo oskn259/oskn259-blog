@@ -1,5 +1,5 @@
 ---
-title: JDK + gradleのjavaビルド環境をDocker上に起動する
+title: JDK + gradleのビルド環境をDocker上に起動する
 createdAt: 2021-9-22
 updatedAt: 2021-9-22
 tags: ['Docker', 'Java', 'gradle']
