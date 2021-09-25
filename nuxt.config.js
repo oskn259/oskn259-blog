@@ -150,7 +150,7 @@ export default {
       const { $content } = require('@nuxt/content')
       const articles = await $content('articles').only(['path','updatedAt']).fetch()
       return articles.map((article) => ({
-        url: article.path,
+        url: `/article/${article.slug}`,
         priority: 0.8,
         lastmod: article.updatedAt,
       }))
