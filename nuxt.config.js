@@ -148,8 +148,8 @@ export default {
     hostname: 'https://blog.oskn259.com',
     routes: async () => {
       const { $content } = require('@nuxt/content')
-      const articles = await $content('articles').only(['path','updatedAt']).fetch()
-      return articles.map((article) => ({
+      const articles = await $content('articles').only(['slug','updatedAt']).fetch()
+      return [articles].flat().map((article) => ({
         url: `/article/${article.slug}`,
         priority: 0.8,
         lastmod: article.updatedAt,
