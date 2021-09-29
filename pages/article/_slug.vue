@@ -9,7 +9,7 @@
     </header>
       
     <v-container class="d-flex flex-column align-start blog-content">
-      <v-img :height="`${imageHeight}px`" class="mb-7 mx-auto" :src="bannerPath(article)" />
+      <v-img width="100%" :minHeight="`200px`" class="mb-7 mx-auto" :src="bannerPath(article)" />
       <div style="width: 100%;" class="d-flex flex-row justify-space-between align-center mb-3">
         <time class="text-subtitle-1" v-html="formatDate(article.updatedAt)"></time>
         <div>
@@ -65,8 +65,6 @@ import moment from 'moment';
   }
 })
 export default class Page extends Vue {
-
-  readonly imageHeight = 450;
 
   article: IContentDocument | null = null;
   siteName: string = process.env.siteName || '';
