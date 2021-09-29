@@ -1,5 +1,5 @@
 ---
-title: 適当なテーブル設計にシステム全体が苦しんだ話
+title: 穴だらけのテーブル設計には懲役・罰金が発生してほしい
 createdAt: 2021-9-29
 updatedAt: 2021-9-29
 tags: ['Architecture']
