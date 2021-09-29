@@ -118,7 +118,7 @@ export default class Page extends Vue {
   }
 
   h1 {
-    font-size: 3rem;
+    font-size: 2.4rem;
   }
 
   h2 {
