@@ -39,6 +39,7 @@
         {{ article.author }}
       </div>
 
+      <TableOfContent :article="article" />
       <NuxtContent :document="article"/>
     </v-container>
 
@@ -52,10 +53,16 @@
 import { IContentDocument } from '@nuxt/content/types/content';
 import { Component, Vue } from 'nuxt-property-decorator';
 import moment from 'moment';
+import TableOfContent from '../../components/TableOfContent/index.vue';
 
 
 
 @Component({
+
+  components: {
+    TableOfContent,
+  },
+
   async asyncData({ $content, params }) {
 
     const slug = params.slug
