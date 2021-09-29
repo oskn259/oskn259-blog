@@ -147,13 +147,32 @@ export default {
     path: '/sitemap.xml',
     hostname: 'https://blog.oskn259.com',
     routes: async () => {
+
       const { $content } = require('@nuxt/content')
       const articles = await $content('articles').only(['slug','updatedAt']).fetch()
-      return [articles].flat().map((article) => ({
+      const articleEntries = [articles].flat().map((article) => ({
         url: `/article/${article.slug}`,
-        priority: 0.8,
+        priority: 0.6,
         lastmod: article.updatedAt,
       }))
+
+      const globalLastmod = Math.max(
+        new Date('2021-08-01 12:00').getTime(),
+        ...articleEntries.map(e => new Date(e.lastmod).getTime())
+      )
+
+      const guidePages = [
+        {
+          url: '/',
+          priority: 1.0,
+          lastmod: globalLastmod,
+        }
+      ]
+
+      return [
+        ...guidePages,
+        ...articleEntries,
+      ];
     }
   },
 }
