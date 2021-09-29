@@ -51,7 +51,6 @@ mysql> describe user;
 +---------------------+---------------------+------+-----+-------------------+-----------------------------+
 | id                  | bigint(20) unsigned | NO   | PRI | NULL              | auto_increment              |
 | email_adddr         | varchar(200)        | NO   | MUL | NULL              |                             |
-| password            | varchar(200)        | NO   |     | NULL              |                             |
 | name                | varchar(50)         | NO   |     | NULL              |                             |
 | status              | varchar(1)          | NO   |     | NULL              |                             |
 | is_deleted          | tinyint(1)          | YES  |     | 0                 |                             |
@@ -63,9 +62,7 @@ mysql> describe profile;
 +---------------------------------+---------------------+------+-----+-------------------+-----------------------------+
 | user_id                         | bigint(20) unsigned | NO   | PRI | NULL              |                             |
 | email_addr                      | varchar(200)        | NO   | MUL | NULL              |                             |
-| gender                          | varchar(1)          | NO   | MUL | NULL              |                             |
 | name                            | varchar(50)         | NO   |     | NULL              |                             |
-| date_of_birth                   | date                | NO   | MUL | NULL              |                             |
 | user_membership                 | varchar(1)          | NO   | MUL | NULL              |                             |
 | age_certification               | tinyint(1)          | YES  | MUL | 0                 |                             |
 | self_introduction               | varchar(3000)       | YES  |     | NULL              |                             |
