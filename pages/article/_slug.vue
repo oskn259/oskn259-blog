@@ -1,6 +1,6 @@
 <template>
 
-  <article class="article content section-article">
+  <article class="article content section-article mx-auto">
 
     <header class="d-flex justify-center my-6">
       <NuxtLink style="text-decoration: none;" :to="`/`">
@@ -96,6 +96,11 @@ export default class Page extends Vue {
 
 
 <style lang="scss">
+article {
+  width: 100%;
+  max-width: 660px;
+}
+
 .nuxt-content-container {
   width: 100%;
 }
@@ -104,10 +109,10 @@ export default class Page extends Vue {
   width: 100%;
   overflow: hidden;
   text-align: justify;
-  line-height: 1.75em;
+  line-height: 1.8em;
 
   p {
-    margin: 1.15rem 0;
+    margin: 1.5rem 0;
   }
 
   h1,

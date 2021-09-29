@@ -109,7 +109,7 @@ export default {
       dark: false,
       themes: {
         light: {
-          background: colors.teal.lighten5,
+          background: colors.shades.white,
           primary: colors.grey.darken4,
           accent: colors.grey.darken3,
           secondary: colors.amber.darken3,
