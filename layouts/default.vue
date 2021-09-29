@@ -28,7 +28,7 @@
 
 
 
-<style scoped>
+<style>
 .root {
   font-family: 'Noto Sans Japanese', "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴシック Pro", "Hiragino Kaku Gothic Pro", 'メイリオ', Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
 }
@@ -40,4 +40,11 @@
 .theme--light.v-application {
   background-color: var(--v-background-base, white) !important;
 }
+
+code {
+  padding: 0 !important;
+  font-family: "Roboto Mono", sans-serif;
+  line-height: 1em;
+}
+
 </style>

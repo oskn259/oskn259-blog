@@ -28,7 +28,8 @@ export default {
       { hid: 'twitter:card', neme: 'twitter:card', content: "summary_large_image" },
     ],
     link: [
-      { rel: "icon", type: "image/x-icon", href: "/favicon.ico" }
+      { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css?family=Roboto+Mono" }
     ],
     script: [
       {
@@ -91,7 +92,7 @@ export default {
   content: {
     markdown: {
       prism: {
-        theme: 'prism-themes/themes/prism-material-oceanic.css'
+        theme: 'prism-themes/themes/prism-dracula.css'
       },
       remarkPlugins: []
     }
