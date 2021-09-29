@@ -104,16 +104,28 @@ export default class Page extends Vue {
   width: 100%;
   overflow: hidden;
   text-align: justify;
-  line-height: 1.65em;
+  line-height: 1.75em;
 
   p {
-    margin: 0.725rem 0;
+    margin: 1.15rem 0;
   }
 
   h1,
   h2,
   h3 {
-    margin: 2.175em 0 0.725rem;
+    margin: 2.3em 0 0.7em;
+  }
+
+  h1 {
+    font-size: 5rem;
+  }
+
+  h2 {
+    font-size: 2.2rem;
+  }
+
+  h3 {
+    font-size: 1.6rem;
   }
 
   a {
