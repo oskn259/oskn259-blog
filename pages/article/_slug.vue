@@ -113,7 +113,8 @@ export default class Page extends Vue {
   h1,
   h2,
   h3 {
-    margin: 2.3em 0 0.7em;
+    margin: 2em 0 0.4em;
+    line-height: 1.3em !important;
   }
 
   h1 {
