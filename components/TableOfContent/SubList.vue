@@ -4,7 +4,7 @@
       v-for="(item, index) of items"
     >
       <li v-if="typeof item === 'string'" :key="item">
-        <a :href="`#${item}`" v-if="typeof item === 'string'">
+        <a :href="`#${toId(item)}`" v-if="typeof item === 'string'">
           {{ item }}
         </a>
       </li>
@@ -31,5 +31,9 @@ export default class SubList extends Vue {
   @Prop({ type: Array, required: true })
   // @ts-ignore
   items: Layer;
+
+  toId(str: string) {
+    return str.toLowerCase().replace(/ /g, '-');
+  }
 }
 </script>
