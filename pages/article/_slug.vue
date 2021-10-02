@@ -7,8 +7,8 @@
         <h1 class="text-h5 font-weight-bold">{{ siteName }}</h1>
       </NuxtLink>
     </header>
-      
-    <v-container class="d-flex flex-column align-start blog-content">
+
+    <v-container class="d-flex flex-column align-start blog-content pa-0">
       <v-img width="100%" :minHeight="`200px`" class="mb-7 mx-auto" :src="bannerPath(article)" />
       <div style="width: 100%;" class="d-flex flex-row justify-space-between align-center mb-3">
         <time class="text-subtitle-1" v-html="formatDate(article.updatedAt)"></time>
@@ -33,10 +33,27 @@
           ></div>
         </div>
       </div>
-      <h1 class="text-h4 font-weight-bold mb-5">{{ article.title }}</h1>
-      <div class="media-right mb-6">
-        <i class="mdi mdi-account-edit"/> &nbsp;
-        {{ article.author }}
+      <h1 class="text-h4 font-weight-bold mb-9">{{ article.title }}</h1>
+
+      <div class="twitter-profile d-flex flex-row ma-0 mb-5 pa-4 pr-8">
+        <img
+          class="twitter-icon mr-5"
+          width="100px"
+          src="https://pbs.twimg.com/profile_images/1433402394780450820/6TzyCMrN_400x400.jpg"
+        >
+        <v-col class="pa-0">
+          <v-col class="pa-0">
+            <span class="twitter-id">oskn259</span>
+          </v-col>
+          <v-row class="ma-0">
+            <a href="https://twitter.com/oskn259" style="text-decoration: none;">
+              <v-icon class="mdi mdi-twitter mr-2"/>
+            </a>
+            <a href="https://github.com/oskn259" style="text-decoration: none;">
+              <v-icon class="mdi mdi-github mr-2"/>
+            </a>
+          </v-row>
+        </v-col>
       </div>
 
       <TableOfContent :article="article" />
@@ -99,6 +116,23 @@ export default class Page extends Vue {
 article {
   width: 100%;
   max-width: 660px;
+}
+
+.twitter-profile {
+  background: #eee;
+  border-radius: 20px;
+}
+
+.twitter-id {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.twitter-icon {
+  width: 60px;
+  height: 60px;
+  border: 1px solid #aaa;
+  border-radius: 30px;
 }
 
 .nuxt-content-container {
