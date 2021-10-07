@@ -80,6 +80,15 @@ import TableOfContent from '../../components/TableOfContent/index.vue';
     TableOfContent,
   },
 
+  mounted() {
+    // @ts-ignore
+    if (typeof twttr !== 'undefined') twttr.widgets.load();
+    try {
+      // @ts-ignore
+      LineIt.loadButton();
+    } catch(e) {}
+  },
+
   async asyncData({ $content, params }) {
 
     const slug = params.slug
