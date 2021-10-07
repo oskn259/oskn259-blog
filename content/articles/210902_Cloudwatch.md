@@ -13,7 +13,7 @@ awsでインフラ構成を作る時に監視の役割を果たすのがCloudWat
 今回はTerraformを使って、監視設定のテキスト化、設定反映の自動化を進めていきます。
 
 
-# やりたいこと
+## やりたいこと
 * 基本的な監視項目を各サーバーに設定
   - CPU, memory, traffic
   - RDS: CPU, slowlog count, operation count
@@ -23,7 +23,7 @@ awsでインフラ構成を作る時に監視の役割を果たすのがCloudWat
 * コマンド一発でCloudWatchにその設定を反映できる
 
 
-# 調査
+## 調査
 クラウド設定というイメージからTerraformの名前を挙げたが、そもそもCloudWatch設定機能はあるのか？  
 ありそう: https://dev.classmethod.jp/articles/manages-cloudwatch-alarm-with-terraform/  
 
@@ -35,7 +35,7 @@ https://blog.adachin.me/archives/6121
 CloudWatch Alarmで閾値超過を検出して、Amazon SNSでslackへ通知、という感じにぱっと見見えますね。  
 
 
-# Terraform記述
+## Terraform記述
 https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_dashboard  
 ここにある、ダッシュボード追加機能を使えば良さそうですね。  
 内容を見ていくと、設定事項をまとめたjsonを渡せば良いようです。
@@ -188,7 +188,7 @@ resource "aws_cloudwatch_dashboard" "main" {
 `template_file`を使ってテンプレートからテキストを生成し、`aws_couldwatch_dashboard`にて反映しています。  
 
 
-# 感想
+## 感想
 
 元々ansibleを長く触ってきて、インフラのコード化という作業には慣れていました。  
 今回Terraformは久しぶりに触るのでほぼ忘れてしまっていました🐓。  
