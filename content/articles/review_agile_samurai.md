@@ -1,5 +1,5 @@
 ---
-title: 【解説】アジャイルサムライ（準備編）
+title: 【解説】アジャイルサムライ（プロジェクト準備編）
 createdAt: 2021-10-13
 updatedAt: 2021-10-13
 tags: ['Management']
