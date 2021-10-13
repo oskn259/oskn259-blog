@@ -312,11 +312,12 @@ fig.3 顧客に打ち合わせの約束を取り付けるPdM
 * 今後の計画を立てられる
 * 当てずっぽうだという共通認識を持つ
 * ソフトウェア開発は複雑だという共通認識を持つ
+<br/>
 
-<img width="60%" src="/article/review_agile_samurai/cat_pc.png">    
+<img width="50%" src="/article/review_agile_samurai/estimate.jpg">    
 <br/>
 <span style="font-style: italic;">
-fig.4 ソフトウェア開発上の問題の正確な予測は難しい
+fig.4 正確な見積もりは難しい
 </span>  
 
 
