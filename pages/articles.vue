@@ -7,7 +7,7 @@
       </NuxtLink>
     </header>
 
-    <v-row class="d-flex justify-center">
+    <v-row class="d-flex justify-center align-center">
       <category-tag class="mr-3" :tagName="tag"/>を含む記事
     </v-row>
 
