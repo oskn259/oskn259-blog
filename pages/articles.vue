@@ -2,13 +2,14 @@
   <div>
 
     <header class="d-flex justify-center my-6">
-      <h1>{{ siteName }}</h1>
+      <NuxtLink style="text-decoration: none;" to="/">
+        <h1>{{ siteName }}</h1>
+      </NuxtLink>
     </header>
 
-    <v-container class="d-flex flex-row justify-center text-subtitle1">
-      <v-icon dense class="mdi mdi-tag"/>
-      <span>{{ tag }} を含む記事</span>
-    </v-container>
+    <v-row class="d-flex justify-center">
+      <category-tag class="mr-3" :tagName="tag"/>を含む記事
+    </v-row>
 
     <v-container>
       <div class="flex-wrap">
