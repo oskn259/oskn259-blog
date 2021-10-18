@@ -314,3 +314,4 @@ canSendMessage() {
 
 ## 浄化槽の導入
 長くなってきたので、いかに対策したかという話は次回の記事で解説します。  
+https://blog.oskn259.com/article/how_confusing_table_effects_2  
