@@ -41,6 +41,10 @@ export default {
         src: 'https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js',
         defer: true,
       },
+      {
+        src: 'https://b.st-hatena.com/js/bookmark_button.js',
+        async: true,
+      },
     ]
   },
 

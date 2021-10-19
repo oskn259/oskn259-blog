@@ -30,6 +30,21 @@
             data-count="false"
             style="display: none;"
           ></div>
+          <a
+            href="https://b.hatena.ne.jp/entry/"
+            class="hatena-bookmark-button"
+            data-hatena-bookmark-layout="basic-counter"
+            data-hatena-bookmark-height="28"
+            title="このエントリーをはてなブックマークに追加"
+          >
+            <img
+              src="https://b.st-hatena.com/images/v4/public/entry-button/button-only@2x.png"
+              alt="このエントリーをはてなブックマークに追加"
+              width="20"
+              height="20"
+              style="border: none;"
+            />
+          </a>
         </div>
       </div>
 
