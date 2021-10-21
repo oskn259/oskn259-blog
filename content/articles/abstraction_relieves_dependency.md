@@ -2,7 +2,7 @@
 title: 抽象化すれば本当に依存度は下がる？？？
 createdAt: 2021-10-20
 updatedAt: 2021-10-20
-tags: ['Architecture', 'Typescript']
+tags: ['Architecture', 'TypeScript']
 banner: pine_sea.jpg
 author: oskn259
 ---
