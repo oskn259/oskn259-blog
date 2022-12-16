@@ -39,7 +39,7 @@
     "babel-jest": "^29.3.1",
     "eslint": "^7.29.0",
     "eslint-plugin-nuxt": "^4.0.0",
-    "eslint-plugin-vue": "^7.17.0",
+    "eslint-plugin-vue": "^9.8.0",
     "jest": "^27.2.0",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^22.0.0",
