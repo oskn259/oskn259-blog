@@ -1,7 +1,7 @@
 ---
 title: 1億総転売屋時代の到来
 date: 2024-06-09
-tags: ['Web3', 'Thought', 'Fintech']
+tags: ['Web3', 'Thought', 'Fintech', 'Blockchain']
 author: oskn259
 ---
 
